@@ -10,10 +10,25 @@ class _LoginpageState extends State<Loginpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text(
-        "Login Page",
-        style: Constants.regularHeading,
-      ),),
-    );
+      body: SafeArea(
+        child: Container(
+          width: double.infinity,
+              child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+          Container(
+            padding: EdgeInsets.only(
+              top: 24.0,
+            ),
+            child: Text("Welcome to\nADShop",
+            textAlign: TextAlign.center,
+            style: Constants.boldHeading,
+            ),
+          ),
+          Text("Input fields"),
+          Text("Create account button")
+        ],),
+      )
+    ));
   }
 }
