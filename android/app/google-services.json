@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "216131259632",
+    "project_id": "shop-woof",
+    "storage_bucket": "shop-woof.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:216131259632:android:e5b1e7c04cbfe54c9b0635",
+        "android_client_info": {
+          "package_name": "com.example.adshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "216131259632-h3d3lujac5sbbgcvu3u9bjokusoi6ik6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtdj2A1lhLYjwGmijo8x9dd98QsRQuMb4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "216131259632-h3d3lujac5sbbgcvu3u9bjokusoi6ik6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
