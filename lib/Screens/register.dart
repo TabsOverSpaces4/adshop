@@ -13,6 +13,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Future<void> _alertDialogBuilder() async {
     return showDialog(
         context: context,
+        barrierDismissible: false,
         builder: (context) {
           return AlertDialog(
             title: Text("Error!"),
@@ -29,6 +30,28 @@ class _RegisterPageState extends State<RegisterPage> {
             ],
           );
         });
+  }
+
+  //Default Form Loading State
+  bool _registerformLoading = false;
+
+  //Form input field Values
+  String _registerEmail = "";
+  String _registerPassword = "";
+
+  // Focus Node for the input fields
+  FocusNode _passwordFocusNode;
+
+  @override
+  void initState() {
+    _passwordFocusNode = FocusNode();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _passwordFocusNode.dispose();
+    super.dispose();
   }
 
   @override
@@ -54,16 +77,31 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               CustomInpt(
                 hintText: "Email...",
+                onChanged: (value) {
+                  _registerEmail = value;
+                },
+                onSubmitted: (value) {
+                  _passwordFocusNode.requestFocus();
+                },
+                textInputAction: TextInputAction.next,
               ),
               CustomInpt(
                 hintText: "Password...",
+                onChanged: (value) {
+                  _registerPassword = value;
+                },
+                focusNode: _passwordFocusNode,
+                isPasswordField: true,
               ),
               Custombtn(
                 text: "Create Account",
                 onPressed: () {
-                  _alertDialogBuilder();
+                  setState(() {
+                    _registerformLoading = true;
+                  });
                 },
                 outlineBtn: false,
+                isLoading: _registerformLoading,
               )
             ],
           ),
