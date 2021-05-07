@@ -1,15 +1,14 @@
-import 'package:adshop/Screens/register.dart';
 import 'package:adshop/Widgets/custom_button.dart';
 import 'package:adshop/Widgets/custom_input.dart';
 import 'package:adshop/constants.dart';
 import 'package:flutter/material.dart';
 
-class Loginpage extends StatefulWidget {
+class RegisterPage extends StatefulWidget {
   @override
-  _LoginpageState createState() => _LoginpageState();
+  _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _LoginpageState extends State<Loginpage> {
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +23,7 @@ class _LoginpageState extends State<Loginpage> {
               top: 24.0,
             ),
             child: Text(
-              "Welcome to\nADShop",
+              "Create A New Account",
               textAlign: TextAlign.center,
               style: Constants.boldHeading,
             ),
@@ -38,9 +37,9 @@ class _LoginpageState extends State<Loginpage> {
                 hintText: "Password...",
               ),
               Custombtn(
-                text: "Login",
+                text: "Create Account",
                 onPressed: () {
-                  print("User clicked login");
+                  print("User attempt to create account");
                 },
                 outlineBtn: false,
               )
@@ -49,10 +48,9 @@ class _LoginpageState extends State<Loginpage> {
           Padding(
             padding: const EdgeInsets.only(bottom: 16.0),
             child: Custombtn(
-              text: "Create a new account",
+              text: "Back To Login",
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => RegisterPage()));
+                Navigator.pop(context);
               },
               outlineBtn: true,
             ),
