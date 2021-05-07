@@ -1,6 +1,7 @@
 import 'package:adshop/Widgets/custom_button.dart';
 import 'package:adshop/Widgets/custom_input.dart';
 import 'package:adshop/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -10,7 +11,7 @@ class RegisterPage extends StatefulWidget {
 
 //build an alert dialog to display an error
 class _RegisterPageState extends State<RegisterPage> {
-  Future<void> _alertDialogBuilder() async {
+  Future<void> _alertDialogBuilder(String error) async {
     return showDialog(
         context: context,
         barrierDismissible: false,
@@ -18,7 +19,7 @@ class _RegisterPageState extends State<RegisterPage> {
           return AlertDialog(
             title: Text("Error!"),
             content: Container(
-              child: Text("Random text error"),
+              child: Text(error),
             ),
             actions: [
               TextButton(
@@ -30,6 +31,43 @@ class _RegisterPageState extends State<RegisterPage> {
             ],
           );
         });
+  }
+
+  void _submitForm() async {
+    // Set the form to loading state
+    setState(() {
+      _registerformLoading = true;
+    });
+
+    String _createAccountFeedback = await _createAccount();
+    if (_createAccountFeedback != null) {
+      _alertDialogBuilder(_createAccountFeedback);
+
+      setState(() {
+        _registerformLoading = false;
+      });
+    } else {
+      //Sign in was successful and the user was routed towards the homescreen using pop funciton
+      Navigator.pop(context);
+    }
+  }
+
+  // Create a new user account
+  Future<String> _createAccount() async {
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _registerEmail, password: _registerPassword);
+      return null;
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        return 'The password provided is too weak.';
+      } else if (e.code == 'email-already-in-use') {
+        return 'The account already exists for that email.';
+      }
+      return e.message;
+    } catch (e) {
+      return e.toString();
+    }
   }
 
   //Default Form Loading State
@@ -92,13 +130,14 @@ class _RegisterPageState extends State<RegisterPage> {
                 },
                 focusNode: _passwordFocusNode,
                 isPasswordField: true,
+                onSubmitted: (value) {
+                  _submitForm();
+                },
               ),
               Custombtn(
                 text: "Create Account",
                 onPressed: () {
-                  setState(() {
-                    _registerformLoading = true;
-                  });
+                  _submitForm();
                 },
                 outlineBtn: false,
                 isLoading: _registerformLoading,
