@@ -1,6 +1,4 @@
 import 'package:adshop/Widgets/bottomtabs.dart';
-import 'package:adshop/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
