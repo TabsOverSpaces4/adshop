@@ -26,7 +26,7 @@ class _BtmtabsState extends State<Btmtabs> {
               BoxShadow(
                 color: Colors.black.withOpacity(0.05),
                 spreadRadius: 1.0,
-                blurRadius: 40.0,
+                blurRadius: 45.0,
               )
             ]),
         child: Row(
