@@ -1,3 +1,4 @@
+import 'package:adshop/Widgets/custom_action_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeTab extends StatelessWidget {
@@ -7,9 +8,10 @@ class HomeTab extends StatelessWidget {
       child: Stack(
         children: [
           Center(child: Text("Home Tab"),),
-          Container(
-            child: Text("Action Bar"),
-          )
+          CustomActionBar(
+            hasBackArrow: false,
+            title: "Home",
+          ),
         ],
       ),
       
