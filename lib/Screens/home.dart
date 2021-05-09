@@ -1,4 +1,8 @@
 import 'package:adshop/Widgets/bottomtabs.dart';
+import 'package:adshop/tabs/hometab.dart';
+import 'package:adshop/tabs/profiletab.dart';
+import 'package:adshop/tabs/savedtab.dart';
+import 'package:adshop/tabs/searchtab.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -38,18 +42,10 @@ class _HomepageState extends State<Homepage> {
               });
             },
             children: [
-              Container(
-                child: Center(child: Text("Homepage")),
-              ),
-              Container(
-                child: Center(child: Text("Search Page")),
-              ),
-              Container(
-                child: Center(child: Text("Saved Page")),
-              ),
-              Container(
-                child: Center(child: Text("Profile Page")),
-              )
+              HomeTab(),
+              Searchtab(),
+              Savedtab(),
+              Profiletab(),
             ],
           ),
         )),
