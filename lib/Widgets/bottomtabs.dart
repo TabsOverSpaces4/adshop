@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class Btmtabs extends StatefulWidget {
   final int selectedTab;
-  Btmtabs({this.selectedTab});
+  final Function(int) tabPressed;
+  Btmtabs({this.selectedTab, this.tabPressed});
 
   @override
   _BtmtabsState createState() => _BtmtabsState();
@@ -10,7 +11,6 @@ class Btmtabs extends StatefulWidget {
 
 class _BtmtabsState extends State<Btmtabs> {
   int _selectedTab = 0;
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,36 +36,28 @@ class _BtmtabsState extends State<Btmtabs> {
               imagePath: "lib/Assets/images/tab_home.png",
               selected: _selectedTab == 0 ? true : false,
               onPressed: () {
-                setState(() {
-                  _selectedTab = 0;
-                });
+                widget.tabPressed(0);
               },
             ),
             BtmtabBtn(
               imagePath: "lib/Assets/images/tab_search.png",
               selected: _selectedTab == 1 ? true : false,
               onPressed: () {
-                setState(() {
-                  _selectedTab = 1;
-                });
+                widget.tabPressed(1);
               },
             ),
             BtmtabBtn(
               imagePath: "lib/Assets/images/tab_saved.png",
               selected: _selectedTab == 2 ? true : false,
               onPressed: () {
-                setState(() {
-                  _selectedTab = 2;
-                });
+                widget.tabPressed(2);
               },
             ),
             BtmtabBtn(
               imagePath: "lib/Assets/images/tab_logout.png",
               selected: _selectedTab == 3 ? true : false,
               onPressed: () {
-                setState(() {
-                  _selectedTab = 3;
-                });
+                widget.tabPressed(4);
               },
             ),
           ],

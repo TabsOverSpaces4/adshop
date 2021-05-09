@@ -55,6 +55,13 @@ class _HomepageState extends State<Homepage> {
         )),
         Btmtabs(
           selectedTab: _selectedTab,
+          tabPressed: (num) {
+            setState(() {
+              _tabsPageController.animateToPage(num,
+                  duration: Duration(milliseconds: 300),
+                  curve: Curves.easeOutCubic);
+            });
+          },
         ),
       ],
     ));
