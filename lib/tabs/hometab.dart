@@ -27,7 +27,9 @@ class HomeTab extends StatelessWidget {
                 return ListView(
                   children: snapshot.data.docs.map((document) {
                     return Container(
-                        child: Image.network("${document.data()}"));
+                        child: Image.network(
+                          "${document.data()}"
+                        ));
                   }).toList(),
                 );
               }
