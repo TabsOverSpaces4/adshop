@@ -32,13 +32,27 @@ class _ProductPageState extends State<ProductPage> {
             }
 
             if (snapshot.connectionState == ConnectionState.done) {
+              // Firebase document data map
               Map<String, dynamic> documentData = snapshot.data.data();
+
+              //List of the images
+              List imageList = documentData['Images'];
+
+
               return ListView(
+                padding: EdgeInsets.all(0),
                 children: [
                   Container(
                     height: 400.0,
-                    child: Image.network(
-                      "${documentData['Images'][0]}"
+                    child: PageView(
+                      children: [
+                        for(var i=0; i < imageList.length; i++)
+                        Container(
+                          child: Image.network(
+                            "${imageList[i]}"
+                          ),
+                        )
+                      ],
                     ),
                   ),
                   Padding(
