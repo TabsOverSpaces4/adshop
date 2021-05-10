@@ -1,4 +1,5 @@
 import 'package:adshop/Widgets/custom_action_bar.dart';
+import 'package:adshop/Widgets/image_swiper.dart';
 import 'package:adshop/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -42,23 +43,15 @@ class _ProductPageState extends State<ProductPage> {
               return ListView(
                 padding: EdgeInsets.all(0),
                 children: [
-                  Container(
-                    height: 400.0,
-                    child: PageView(
-                      children: [
-                        for(var i=0; i < imageList.length; i++)
-                        Container(
-                          child: Image.network(
-                            "${imageList[i]}"
-                          ),
-                        )
-                      ],
-                    ),
+                  ImageSwipe(
+                    imageList: imageList,
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 8.0,
-                      horizontal: 24.0,
+                    padding: const EdgeInsets.only(
+                      top: 24.0,
+                      right: 24.0,
+                      left: 24.0,
+                      bottom: 4.0,
                     ),
                     child: Text(
                       "${documentData['Type']}" ?? "Type Not Mentioned",
@@ -122,6 +115,7 @@ class _ProductPageState extends State<ProductPage> {
         CustomActionBar(
           hasTitle: false,
           hasBackArrow: true,
+          hasBackground: false,
         )
       ],
     ));
