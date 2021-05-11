@@ -77,7 +77,7 @@ class HomeTab extends StatelessWidget {
                                         style: Constants.regularHeading,
                                       ),
                                       Text(
-                                        "Price",
+                                        "Age: ",
                                         style: TextStyle(
                                             fontSize: 18.0,
                                             color:

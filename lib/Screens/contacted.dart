@@ -2,8 +2,6 @@ import 'package:adshop/Services/Firebase_services.dart';
 import 'package:adshop/Widgets/custom_action_bar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
-import '../constants.dart';
 import 'product_page.dart';
 
 class ContactedPage extends StatefulWidget {
@@ -68,15 +66,67 @@ class _ContactedPageState extends State<ContactedPage> {
                                 ConnectionState.done) {
                               Map _procuctMap = productSnap.data.data();
 
-                              return Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12.0)),
-                                margin: EdgeInsets.symmetric(
-                                    vertical: 12.0, horizontal: 24.0),
-                                child: Container(
-                                  child: Text("${_procuctMap['Name']}"),
-                                ),
-                              );
+                              return Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 16.0,
+                                horizontal: 24.0,
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.start,
+                                children: [
+                                  Container(
+                                    width: 90,
+                                    height: 90,
+                                    child: ClipRRect(
+                                      borderRadius:
+                                      BorderRadius.circular(8.0),
+                                      child: Image.network(
+                                        "${_procuctMap['Images'][0]}",
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.only(
+                                      left: 16.0,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          "${_procuctMap['Type']}",
+                                          style: TextStyle(
+                                              fontSize: 18.0,
+                                              color: Colors.black,
+                                              fontWeight:
+                                              FontWeight.w600),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets
+                                              .symmetric(
+                                            vertical: 4.0,
+                                          ),
+                                          child: Text(
+                                            "${_procuctMap['Name']}",
+                                            style: TextStyle(
+                                                fontSize: 16.0,
+                                                color: Theme.of(context)
+                                                    .accentColor,
+                                                fontWeight:
+                                                FontWeight.w600),
+                                          ),
+                                        ),
+                                        
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            );
                             }
 
                             return Container(
