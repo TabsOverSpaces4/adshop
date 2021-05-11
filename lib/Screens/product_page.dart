@@ -2,8 +2,6 @@ import 'package:adshop/Services/Firebase_services.dart';
 import 'package:adshop/Widgets/custom_action_bar.dart';
 import 'package:adshop/Widgets/image_swiper.dart';
 import 'package:adshop/constants.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class ProductPage extends StatefulWidget {

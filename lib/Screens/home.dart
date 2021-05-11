@@ -4,7 +4,6 @@ import 'package:adshop/tabs/hometab.dart';
 import 'package:adshop/tabs/profiletab.dart';
 import 'package:adshop/tabs/savedtab.dart';
 import 'package:adshop/tabs/searchtab.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
