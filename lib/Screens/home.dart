@@ -1,8 +1,10 @@
+import 'package:adshop/Services/Firebase_services.dart';
 import 'package:adshop/Widgets/bottomtabs.dart';
 import 'package:adshop/tabs/hometab.dart';
 import 'package:adshop/tabs/profiletab.dart';
 import 'package:adshop/tabs/savedtab.dart';
 import 'package:adshop/tabs/searchtab.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 class Homepage extends StatefulWidget {
@@ -11,11 +13,13 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  FirebaseServices _firebaseServices = FirebaseServices();
   PageController _tabsPageController;
   int _selectedTab = 0;
 
   @override
   void initState() {
+    print("User ID: ${_firebaseServices.getUserId()}");
     _tabsPageController = PageController();
     super.initState();
   }

@@ -21,11 +21,12 @@ class CustomActionBar extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-          gradient: _hasBackground ? LinearGradient(
-              colors: [Colors.white, Colors.white.withOpacity(0.0)],
-              begin: Alignment(0, 0),
-              end: Alignment(0, 1)): null
-              ),
+          gradient: _hasBackground
+              ? LinearGradient(
+                  colors: [Colors.white, Colors.white.withOpacity(0.0)],
+                  begin: Alignment(0, 0),
+                  end: Alignment(0, 1))
+              : null),
       padding: EdgeInsets.only(
         top: 56.0,
         bottom: 24.0,
@@ -36,18 +37,23 @@ class CustomActionBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           if (_hasBackArrow)
-            Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                  color: Color(0xFFF2F2F2),
-                  borderRadius: BorderRadius.circular(8.0)),
-              alignment: Alignment.center,
-              child: Image(
-                image: AssetImage("lib/Assets/images/back_arrow.png"),
-                color: Colors.black,
-                width: 16,
-                height: 16,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                width: 40.0,
+                height: 40.0,
+                decoration: BoxDecoration(
+                    color: Color(0xFFF2F2F2),
+                    borderRadius: BorderRadius.circular(8.0)),
+                alignment: Alignment.center,
+                child: Image(
+                  image: AssetImage("lib/Assets/images/back_arrow.png"),
+                  color: Colors.black,
+                  width: 16,
+                  height: 16,
+                ),
               ),
             ),
           if (_hasTitle)
@@ -56,21 +62,16 @@ class CustomActionBar extends StatelessWidget {
               style: Constants.boldHeading,
             ),
           Container(
-            width: 40.0,
-            height: 40.0,
-            decoration: BoxDecoration(
-                color: Colors.deepOrange[700],
-                borderRadius: BorderRadius.circular(8.0)),
-            alignment: Alignment.center,
-            child: Text(
-              "0",
-              style: TextStyle(
-                fontSize: 16.0,
-                fontWeight: FontWeight.w600,
+              width: 40.0,
+              height: 40.0,
+              decoration: BoxDecoration(
+                  color: Colors.deepOrange[700],
+                  borderRadius: BorderRadius.circular(8.0)),
+              alignment: Alignment.center,
+              child: Icon(
+                Icons.recent_actors_outlined,
                 color: Colors.white,
-              ),
-            ),
-          )
+              ))
         ],
       ),
     );
