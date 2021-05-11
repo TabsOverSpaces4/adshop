@@ -94,7 +94,7 @@ class Searchtab extends StatelessWidget {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      "Pet name",
+                                      "Name",
                                       style: Constants.regularHeading,
                                     ),
                                     Text(
