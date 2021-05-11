@@ -1,3 +1,4 @@
+import 'package:adshop/Screens/contacted.dart';
 import 'package:adshop/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -61,17 +62,26 @@ class CustomActionBar extends StatelessWidget {
               title ?? "Action Bar",
               style: Constants.boldHeading,
             ),
-          Container(
-              width: 40.0,
-              height: 40.0,
-              decoration: BoxDecoration(
-                  color: Colors.deepOrange[700],
-                  borderRadius: BorderRadius.circular(8.0)),
-              alignment: Alignment.center,
-              child: Icon(
-                Icons.recent_actors_outlined,
-                color: Colors.white,
-              ))
+          GestureDetector(
+            onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ContactedPage(),
+                      ));
+                },
+                      child: Container(
+                width: 40.0,
+                height: 40.0,
+                decoration: BoxDecoration(
+                    color: Colors.deepOrange[700],
+                    borderRadius: BorderRadius.circular(8.0)),
+                alignment: Alignment.center,
+                child: Icon(
+                  Icons.recent_actors_outlined,
+                  color: Colors.white,
+                )),
+          )
         ],
       ),
     );

@@ -17,15 +17,10 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   FirebaseServices _firebaseServices = FirebaseServices();
 
-  final CollectionReference _productsRef =
-      FirebaseFirestore.instance.collection("Products");
-
-  final CollectionReference _usersRef =
-      FirebaseFirestore.instance.collection("Users");
-
+  
 
   Future _addToCart() {
-    return _usersRef
+    return _firebaseServices.usersRef
         .doc(_firebaseServices.getUserId())
         .collection("Contacted")
         .doc(widget.productId)
@@ -38,7 +33,7 @@ class _ProductPageState extends State<ProductPage> {
         body: Stack(
       children: [
         FutureBuilder(
-          future: _productsRef.doc(widget.productId).get(),
+          future: _firebaseServices.productsRef.doc(widget.productId).get(),
           builder: (context, snapshot) {
             if (snapshot.hasError) {
               return Scaffold(
