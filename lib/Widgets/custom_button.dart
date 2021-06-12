@@ -33,7 +33,7 @@ class Custombtn extends StatelessWidget {
               visible: _isLoading ? false : true,
                           child: Center(
                 child: Text(
-                  text ?? "Text",
+                  text ?? "No label assigned",
                   style: TextStyle(
                     fontSize: 16.0,
                     color: _outlineBtn ? Colors.black : Colors.white,
