@@ -5,6 +5,7 @@ import 'package:adshop/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Searchtab extends StatelessWidget {
   FirebaseServices _firebaseServices = FirebaseServices();
 
