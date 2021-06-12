@@ -59,7 +59,7 @@ class CustomActionBar extends StatelessWidget {
             ),
           if (_hasTitle)
             Text(
-              title ?? "Action Bar",
+              title ?? "Action Bar Title",
               style: Constants.boldHeading,
             ),
           GestureDetector(
