@@ -23,7 +23,7 @@ class HomeTab extends StatelessWidget {
                   ),
                 );
               }
-
+              //Temporary change
               //Collected data is ready to be displayed
               if (snapshot.connectionState == ConnectionState.done) {
                 //Display the data inside it
